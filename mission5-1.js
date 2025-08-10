@@ -6,11 +6,9 @@ async function getPokemonData(pokemonName) {
     if (retry){
         getPokemonData(retry.toLowerCase()) // 小文字にして再試行   
     }
-    return; // エラー時はここで終了
+    return; 
 }
   const data = await response.json()
-
-  console.log(data) // デバッグ用
 
   const name = data.name
   const height = data.height
@@ -31,4 +29,5 @@ async function getPokemonData(pokemonName) {
 var text = prompt("ポケモンの名前を入力してください。")
 if (text) { // キャンセルで空文字にならないように
   getPokemonData(text.toLowerCase()) // 小文字にして検索精度アップ
+
 }
